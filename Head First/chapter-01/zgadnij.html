@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zgadnij co robi kod JavaScript</title>
+    <script>
+
+        var price = 28.99;                          // tworzy zmienną o nazwie price i przypisuje jej wartość 28.99
+        var discount = 10;                          // tworzy zmienną o nazwie discount i przypisuje jej wartość 10
+        var total =                                 // wyznacza nową cenę poprzez zastosowanie zniżki, a wynik zapisuje
+            price - (price * (discount / 100));     // w zmiennej total
+        if (total > 25) {                           // porównuje wartość zmiennej total z liczbą 25 i jeśli wartość
+            freeShipping();                         // zmiennej jest większa to wywołuje funkcję freeShipping
+        }                                           // to jest koniec instrukcji if
+
+        var count = 10;                             // tworzy zmienną o nazwie count i przypisuje jej wartość 10
+        while (count > 0) {                         // tak długo jak wartość zmiennej count jest większa od 0 ...
+            juggle();                               // ... wywołuje funkcja juggle ...
+            count = count - 1;                      // ... zmniejsza wartość zmiennej count o 1.
+        }                                           // to jest koniec pętli while
+
+        var dog = {name: "Burek", weight: 35};      // tworzy zmienną o nazwie dog i przypisuje mu imię i wagę
+        if (dog.weight > 30) {                      // jeśli waga psa jest większa od 30 ...
+            alert("HAU HAU");                       // ... wyświetla w oknie przeglądarki ostrzeżenie HAU HAU
+        } else {                                    // w przeciwnym razie
+            alert("hau hau");                       // ... wyświetli w oknie przeglądarki ostrzeżenie hau hau
+        }                                           // to jest koniec instrukcji if/else
+
+        var circleRadius = 20;                      // tworzy zmienną circleRadius i zapisuje w niej wartość 20
+        var circleArea =                            // tworzy zmienną circleArea
+            Math.PI * (circleRadius * circleRadius);// zapisuje w niej wartość tego wyrażenia (1256.6370614359173)
+
+    </script>
+</head>
+<body>
+    <h1>
+        Taki tam ogólny nagłówek
+    </h1>
+    <p>
+        Nie znajdziesz tu zbyt wiele do poczytania. Jestem tym biednym, obowiązkowym akapitem tekstu w przykładzie
+        skryptu JavaScript. Szukam czegoś, co sprawi, że moje życie stanie się bardziej atrakcyjne
+    </p>
+
+</body>
+</html>

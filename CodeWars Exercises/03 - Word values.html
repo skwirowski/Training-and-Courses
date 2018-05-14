@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Word values</title>
+</head>
+<body>
+
+<script>
+    var arrayOfLetters = ["a", "b", "c"];
+
+    function letterToNumber(letter, number) {
+        return parseInt(letter, number) - 9;
+    }
+
+    function catchArrayIndex() {
+        var number;
+        for (number = 0; number < arrayOfLetters.length; number++) {
+            console.log(arrayOfLetters[number]);
+        }
+    }
+
+    for (var value of arrayOfLetters) {
+        console.log(letterToNumber(value, 36));
+    }
+</script>
+
+</body>
+</html>

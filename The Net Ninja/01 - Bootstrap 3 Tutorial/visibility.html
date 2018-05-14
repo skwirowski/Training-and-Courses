@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Visibility</title>
+    <!-- Latest compiled and minified CSS Bootstrap v3.3.7 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="_css/main.css" rel="stylesheet" type="text/css" media="all" >
+</head>
+<body>
+<div class="visibility-page">
+    <h1>Visibility</h1>
+    <h4><a href="index.html">Go back to <i>List of issues</i></a></h4>
+    <div class="container-fluid">
+    <!--hidden-->
+        <h3><i>Hidden</i> - first (1) image should hide at xs width (<768px), last (4) image should hide at lg width (>1200px)</h3>
+        <div class="row">
+            <div class="content col-xs-12 hidden-xs col-sm-3">
+                <img src="_images/01.png" class="img-responsive img-circle center-block">1
+            </div>
+            <div class="content col-xs-12 col-sm-3">
+                <img src="_images/02.png" class="img-responsive img-circle center-block">2
+            </div>
+            <div class="content col-xs-12 col-sm-3">
+                <img src="_images/03.png" class="img-responsive img-circle center-block">3
+            </div>
+            <div class="content col-xs-12 col-sm-3 hidden-lg">
+                <img src="_images/04.png" class="img-responsive img-circle center-block">4
+            </div>
+        </div>
+    <!--visible-->
+        <h3><i>Visible</i> - first (1) image should be visible only at xs width (<768px), last (4) image should be visible only at md
+            width (&#8805; 992px)</h3>
+        <div class="row">
+            <div class="content col-xs-12 visible-xs col-sm-3">
+                <img src="_images/01.png" class="img-responsive img-circle center-block">1
+            </div>
+            <div class="content col-xs-12 col-sm-3">
+                <img src="_images/02.png" class="img-responsive img-circle center-block">2
+            </div>
+            <div class="content col-xs-12 col-sm-3">
+                <img src="_images/03.png" class="img-responsive img-circle center-block">3
+            </div>
+            <div class="content col-xs-12 col-sm-3 visible-md">
+                <img src="_images/04.png" class="img-responsive img-circle center-block">4
+            </div>
+        </div>
+    <!--block - inline block - inline elements-->
+    <div class="container-fluid">
+        <h3>Display as block element (default) - only at md width (&#8805; 992px)</h3>
+        <div class="row">
+            <div class="col-xs-12">
+                <span class="visible-md">YAY</span>
+                <span class="visible-md">YAY</span>
+            </div>
+        </div>
+        <h3>Display as inline element - only at md width (&#8805; 992px)</h3>
+        <div class="row">
+            <div class="col-xs-12">
+                <span class="visible-md-inline">YAY</span>
+                <span class="visible-md-inline">YAY</span>
+            </div>
+        </div>
+        <h3>Display as inline-block element - only at md width (&#8805; 992px)</h3>
+        <div class="row">
+            <div class="col-xs-12">
+                <span class="visible-md-inline-block">YAY</span>
+                <span class="visible-md-inline-block">YAY</span>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- jQuery Core 3.3.1 -->
+<script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript Bootstrap v3.3.7 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+</html>

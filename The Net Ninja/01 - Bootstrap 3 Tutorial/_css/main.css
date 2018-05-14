@@ -1,0 +1,370 @@
+
+
+/*********************************************************************************/
+/* Index Page                                                                    */
+/*********************************************************************************/
+
+.index-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.index-page div:first-of-type {
+    padding-top: 20px;
+    background: #ccc;
+    margin: 50px auto;
+    font-size: 1.2em;
+}
+
+/*********************************************************************************/
+/* Containers Page                                                               */
+/*********************************************************************************/
+
+.containers-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.containers-page div:first-of-type {
+    background: #ccc;
+    margin: 50px auto;
+    height: 200px;
+}
+
+.containers-page div:last-of-type {
+    background: #ccc;
+    margin: 50px auto;
+    height: 200px;
+}
+
+.containers-page h4::before {
+    content: "\00ab \00a0 \00a0";
+}
+
+.containers-page h4::after {
+    content: "\00a0 \00a0 \00ab";
+}
+
+/*********************************************************************************/
+/* Rows Page                                                                     */
+/*********************************************************************************/
+
+.rows-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.rows-page .content {
+    background: #ccc;
+    height: 200px;
+}
+
+.rows-page .sidebar {
+    background: #eee;
+    height: 200px;
+}
+
+.rows-page .gallery {
+    margin-top: 20px;
+}
+
+.rows-page .thumb {
+    padding: 60px 10px;
+    background-color: #ccc;
+    text-align: center;
+}
+
+.rows-page .thumb:nth-child(2n) {
+    background-color: #eee;
+}
+
+/*********************************************************************************/
+/* Columns Page                                                                  */
+/*********************************************************************************/
+
+.columns-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.columns-page .content {
+    background: #ccc;
+    height: 200px;
+}
+
+.columns-page .gallery {
+    margin-top: 20px;
+}
+
+.columns-page .thumb {
+    padding: 60px 10px;
+    background-color: #ccc;
+    text-align: center;
+}
+
+.columns-page .thumb:nth-child(2n) {
+    background-color: #eee;
+}
+
+/*********************************************************************************/
+/* Offset Page                                                                   */
+/*********************************************************************************/
+
+.offset-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.offset-page .thumb {
+    padding: 60px 10px;
+    background-color: #ccc;
+    text-align: center;
+}
+
+.offset-page .thumb:nth-child(2n) {
+    background-color: #eee;
+}
+
+/*********************************************************************************/
+/* Push & Pull Page                                                              */
+/*********************************************************************************/
+
+.push-pull-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.push-pull-page .container-fluid {
+    margin-bottom: 20px;
+}
+
+.push-pull-page .content {
+    background: #ccc;
+    padding: 60px 10px;
+    text-align: center;
+}
+
+.push-pull-page .sidebar {
+    background: #eee;
+    padding: 60px 10px;
+    text-align: center;
+}
+
+/*********************************************************************************/
+/* Clearfix Page                                                                 */
+/*********************************************************************************/
+
+.clearfix-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.clearfix-page .thumb {
+    padding: 20px 10px;
+    background-color: #ccc;
+    text-align: center;
+    }
+
+.clearfix-page .thumb:nth-child(2n) {
+    background-color: #eee;
+}
+
+.clearfix-page .row:last-of-type .thumb:nth-child(odd){
+      clear: both;
+}
+
+.clearfix-page div + p {
+    margin-top: 40px;
+}
+
+/*********************************************************************************/
+/* Lists Styling Page                                                            */
+/*********************************************************************************/
+
+.list-style-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.list-style-page .container-fluid {
+    background: #ccc;
+}
+
+.list-style-page h3 {
+    margin-top: 30px;
+}
+
+/*********************************************************************************/
+/* Button Styles Page                                                            */
+/*********************************************************************************/
+
+.buttons-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.buttons-page .content {
+    padding: 20px 10px;
+    background-color: #ccc;
+    margin: 5px 0;
+}
+
+.buttons-page .content:nth-child(2n) {
+    background-color: #eee;
+}
+
+/*********************************************************************************/
+/* Image Styles Page                                                             */
+/*********************************************************************************/
+
+.image-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.image-page .container-fluid {
+    background-color: #ccc;
+    padding-bottom: 10px;
+}
+
+/*********************************************************************************/
+/* Visibility Page                                                               */
+/*********************************************************************************/
+
+.visibility-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.visibility-page .container-fluid {
+    background-color: #eee;
+}
+
+.visibility-page .row {
+    background-color: #ccc;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.visibility-page .content {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.visibility-page span {
+    width: 40%;
+    padding: 20px;
+    background: deeppink;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+/*********************************************************************************/
+/* Drop-down Menu's Page                                                         */
+/*********************************************************************************/
+
+.drop-down-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.drop-down-page h3 {
+    background-color: #eee;
+    margin: 0;
+    padding: 10px;
+}
+
+.drop-down-page .dropdown {
+    background-color: #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/*********************************************************************************/
+/* Tabs & Pills Page                                                             */
+/*********************************************************************************/
+
+.tabs-pills-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.tabs-pills-page .container-fluid {
+    margin-bottom: 40px;
+}
+
+.tabs-pills-page .col-xs-12 {
+    margin-bottom: 40px;
+}
+
+/*********************************************************************************/
+/* Navbars Page                                                                  */
+/*********************************************************************************/
+
+.navbars-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.navbars-page p:last-of-type {
+    padding-bottom: 60px;
+}
+
+/*********************************************************************************/
+/* Navbar Classes Page                                                           */
+/*********************************************************************************/
+
+.navbar-classes-page {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 10px;
+}
+
+.navbar-classes-page button {
+    margin-left: 10px;
+}
+
+/*********************************************************************************/
+/* Mobile Navbars Page                                                           */
+/*********************************************************************************/
+
+.mobile-navbars-page {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 10px;
+}
+
+.mobile-navbars-page button {
+    margin-left: 10px;
+}
+
+/*********************************************************************************/
+/* Jumbotrons Page                                                               */
+/*********************************************************************************/
+
+.jumbotron-page .jumbotron  {
+    margin-top: 40px;
+}
+
+.jumbotron-page button {
+    margin-left: 10px;
+}
+
+.jumbotron-page .row:last-of-type {
+    margin-bottom: 40px;
+}

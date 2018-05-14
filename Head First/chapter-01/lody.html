@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Jak działa pętla while/if?</title>
+    <script>
+        var scoops = 5;
+
+        while (lody > 0) {
+            document.write ("Kolejna gałka!<br>");
+
+            if (lody >= 5) {
+                alert ("Jedz szybciej, lody się zaraz roztopią!")
+            }
+
+            else if (lody == 3) {
+                alert ("Lody się kończą!");
+            }
+
+            else if (lody == 2) {
+                alert ("Już tylko dwie!")
+            }
+
+            else if (lody == 1) {
+                alert ("Ostatnia!")
+            }
+
+            else if (lody == 0) {
+                alert ("No i koniec!")
+            }
+            lody = lody - 1;
+        }
+        document.write ("Życie bez lodów nie jest już takie samo!");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

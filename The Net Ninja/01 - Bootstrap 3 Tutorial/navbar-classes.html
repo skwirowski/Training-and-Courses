@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navbars Classes</title>
+    <!-- Latest compiled and minified CSS Bootstrap v3.3.7 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="_css/main.css" rel="stylesheet" type="text/css" media="all" >
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand"><i>AWESOME LOGO</i></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Ninja Training</a></li>
+                <li><a href="#">Wizard Training</a></li>
+                <li class="active"><a href="#">Jedi Training</a></li>
+                <li><a href="#">Necromancer Training</a></li>
+                <li><a href="#">Assassin Training</a></li>
+                <li><a href="#">Coding Training</a></li>
+            </ul>
+            <button class="btn btn-default navbar-btn navbar-right">Register</button>
+            <button class="btn btn-primary navbar-btn navbar-right">Login</button>
+        </div>
+    </nav>
+    <div class="navbar-classes-page">
+        <h1>Navigation Bar Classes</h1>
+        <h4><a href="index.html">Go back to <i>List of issues</i></a></h4>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>ASSIMILATION.</h3>
+                    <p> Admirals walk with nuclear flux at the extraterrestrial saucer section! Gravimetric vogons, to
+                        the solar system. Why does the species warp? All hands harvest, powerdrain! All of those
+                        pathways attack greatly exaggerated, small parasites. The sensor malfunctions adventure like a
+                        mysterious pathway. Processors fly with energy! Tremble, scotty, biological resistance!
+                        Green people experiment from mysteries like crazy processors. Paralysis at the center was the
+                        powerdrain of courage, observed to an intelligent alien.</p>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery Core 3.3.1 -->
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript Bootstrap v3.3.7 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script>
+        $(".nav li").on("click", function(){
+            $(".nav li").removeClass("active");
+            $(this).addClass("active");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Znajdź błędy w kodzie JavaScript</title>
+    <script>
+
+        // A - test żartów (błędy zostały opisane i poprawione)
+
+        var joke = "Przychodzi JavaScript do lekarza ...."; // błąd 1 - konsekwentnie trzymać się cudzysłowów lub apostrofów
+        var toldJoke = false;                               // błąd 2 - wartości logiczne (boolean) zapisujemy bez cudzysłowiów/apostrofów
+        var punchline =                                     // błąd 3 - nazwa zaczynająca się od $ (nie zalecane)
+            "Panie doktorze, mam średniki w oczach";        // błąd 4 - brak średnika na końcu instrukcji
+        var entage = 20;                                    // błąd 5 - nazwa nie może zaczynać się od znaku %
+        var result;                                         // błąd 6 - brak średnika na końcu instrukcji
+
+        if (toldJoke == true) {
+            alert(punchline);                               // błąd 7 - alert nie może być z dużej litery
+        } else {                                            // błąd 8 - brak klamry otwierającej instrukcję
+            alert(joke);
+        }
+
+        // B - Noc filmowa (błędy zostały opisane i poprawione)
+
+        var zipCode = 98104;                                // błąd 1 - nazwa nie może zawierać znaku spacji
+        var joesFavouriteMovie = "Zakazana planeta";        // błąd 2 - nazwa nie może zawierać apostrofu lub cudzysłowiu
+                                                            // błąd 3 - łańcuch znaków musi zawierać się w cudzysłowie/apostrofie
+        var movieTickets = 9;                               // błąd 4 - na końcu nazwy znajduje się znak $
+
+        if (movieTickets >= 9) {
+            alert("To już za dużo!");
+        } else {
+            alert("Teraz oglądamy film: " + joesFavouriteMovie);
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
