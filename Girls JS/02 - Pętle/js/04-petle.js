@@ -1,6 +1,6 @@
 // 4.
 // Stwórz tablicę, a następnie
-// przy pomocą pętli stwórz tablicę zawierającą
+// za pomocą pętli stwórz tablicę zawierającą
 // te same elementy w odwrotnej kolejności.
 // Wyświetl je w alercie.
 //
