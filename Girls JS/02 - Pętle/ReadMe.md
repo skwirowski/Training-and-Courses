@@ -13,3 +13,6 @@ Wyświetl w konsoli liczby od 100 do 1.
 
 ### Zadanie 4
 Stwórz tablicę, a następnie za pomocą pętli stwórz tablicę zawierającą te same elementy w odwrotnej kolejności. Wyświetl je w alercie.
+
+### Zadanie 5
+Za pomocą pętli policz silnię z dowolnej, podanej liczby.
