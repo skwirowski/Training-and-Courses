@@ -16,3 +16,6 @@ Stwórz tablicę, a następnie za pomocą pętli stwórz tablicę zawierającą 
 
 ### Zadanie 5
 Za pomocą pętli policz silnię z dowolnej, podanej liczby.
+
+### Zadanie 6
+Stwórz obiekt i wyświetl na stronie wszystkie jego elementy w formacie: "(klucz) wynosi (wartość)". Funkcji nie wywołuj w konsoli.
