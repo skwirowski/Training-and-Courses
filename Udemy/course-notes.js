@@ -110,3 +110,100 @@ const allNamesES6 = [...names, 'George', ...moreNames]; // ...names / ...moreNam
 
 console.log(allNamesES6);
 
+/* -------------------- SECTION 4 Lecture 16 - ELEMENTS --------------------
+   Rendering elements in DOM
+   -------------------------------------------------------------------------
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const element = React.createElement('ol', null,
+    React.createElement('li', null, 'Take out the trash'),
+    React.createElement('li', null, 'Shovel the driveway'),
+    React.createElement('li', null, 'Walk the dog')
+);
+ReactDOM.render(element, document.getElementById('root'));
+========================
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const tasks = ['Take out the trash', 'Shovel the driveway', 'Walk the dog'];
+
+const element = React.createElement('ol', null,
+    tasks.map((task, index) => React.createElement('li', { key: index }, task))
+);
+ReactDOM.render(element, document.getElementById('root'));
+*/
+
+/* -------------------- SECTION 4 Lecture 17 - JSX -------------------------
+   Rendering list elements using JSX syntax
+   -------------------------------------------------------------------------
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const tasks = ['Take out the trash', 'Shovel the driveway', 'Walk the dog'];
+
+const element =
+    <ol>
+        <li>{tasks[0]}</li>
+        <li>{tasks[1]}</li>
+        <li>{tasks[2]}</li>
+    </ol>;
+ReactDOM.render(element, document.getElementById('root'));
+========================
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const tasks = ['Take out the trash', 'Shovel the driveway', 'Walk the dog'];
+
+const element =
+    <div>
+        <h1>Task List</h1>
+        <ol>
+            {tasks.map((task, index) => <li key={index}>{task}</li>)}
+        </ol>
+    </div>;
+ReactDOM.render(element, document.getElementById('root'));
+*/
+
+/* ----------------- SECTION 4 Lecture 18 - COMPONENTS ---------------------
+   Rendering list elements using Components
+   -------------------------------------------------------------------------
+
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
+class List extends Component {
+    render() {
+        return(
+            <ol>
+                {this.props.tasks.map((task, index) => <li key={index}>{task}</li>)}
+            </ol>
+        )
+    }
+}
+class Title extends Component {
+    render() {
+        return(
+            <h1>
+                {this.props.title}
+            </h1>
+        )
+    }
+}
+class Main extends Component {
+    render() {
+        return(
+            <div>
+                <Title title={"To Dos"}/>
+                <List tasks={['Take out the trash', 'Walk the dog', 'Mow the lawn']} />
+                <List tasks={['Shovel the driveway', 'Finish the laundry', 'Hose the driveway']} />
+            </div>
+        )
+    }
+}
+ReactDOM.render(<Main />, document.getElementById('root'));
+*/
+
+
