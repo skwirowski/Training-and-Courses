@@ -5,8 +5,16 @@ import Photo from './Photo';
 
 function PhotoWall(props) {
     return(
-        <div className="photo-grid">
-            {props.posts.map((post, index) => <Photo key={index} post={post} onRemovePhoto={props.onRemovePhoto} />)}
+        <div>
+            <button className="addIcon"
+                    onClick={props.onNavigate}
+            > </button>
+            <div className="photo-grid">
+                {props.posts.map((post, index) => <Photo key={index}
+                                                         post={post}
+                                                         onRemovePhoto={props.onRemovePhoto}
+                />)}
+            </div>
         </div>
     )
 }
