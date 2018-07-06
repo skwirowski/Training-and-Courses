@@ -123,7 +123,7 @@ const element = React.createElement('ol', null,
     React.createElement('li', null, 'Walk the dog')
 );
 ReactDOM.render(element, document.getElementById('root'));
-========================
+================================================
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -151,7 +151,7 @@ const element =
         <li>{tasks[2]}</li>
     </ol>;
 ReactDOM.render(element, document.getElementById('root'));
-========================
+================================================
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -215,7 +215,7 @@ ReactDOM.render(<Main />, document.getElementById('root'));
 3. Component did mount - is initialized just after components are in the DOM
 4. Component will mount - gets invoked before the component is inserted to the DOM, before render() method gets invoked
 5. Component did update - this lifecycle method gets called whenever the component is re-rendered / whenever we update state of out component to trigger a re-render
-========================
+================================================
 The following methods are called when a component is being added to the DOM:
 1. constructor() : called before component is mounted. NEVER put side effect code inside of the constructor. Use ComponentDidMount for that instead. Commonly used to initialize state or bind methods.
 2. componentWillMount(): invoked immediately before mounting occurs. Called before render. Once again, DO NOT put any side effect code inside of componentWillMount, and do not make API calls in this method
@@ -224,7 +224,7 @@ The following methods are called when a component is being added to the DOM:
 
 The following methods are called when a component is re-rendered to the DOM:
 1. componentDidUpdate(): called when the state of a component changes. Perfect place to update UI or make network calls based on previous state before update, and current state
-========================
+================================================
 import React, {Component} from 'react';
 import Title from './Title';
 import PhotoWall from './PhotoWall';
@@ -283,4 +283,128 @@ function simulateFetchFromDatabase() {
 }
 export default Main
 */
+
+/* ------------- SECTION 6 Lecture 32 - COMPONENT STATE NAVIGATION ----------
+   Create site navigation using component state
+   --------------------------------------------------------------------------
+
+import React, {Component} from 'react';
+import Title from './Title';
+import PhotoWall from './PhotoWall';
+import AddPhoto from './AddPhoto';
+
+class Main extends Component {
+    constructor() {
+        super();
+        this.state = {
+            posts: [{
+                id: "0",
+                description: "beautiful landscape",
+                imageLink: "https://image.jimcdn.com/app/cms/image/transf/none/path/sa6549607c78f5c11/image/i4eeacaa2dbf12d6d/version/1490299332/most-beautiful-landscapes-in-europe-lofoten-european-best-destinations-copyright-iakov-kalinin.jpg" +
+                "3919321_1443393332_n.jpg"
+            }, {
+                id: "1",
+                description: "Aliens???",
+                imageLink: "https://img.purch.com/rc/640x415/aHR0cDovL3d3dy5zcGFjZS5jb20vaW1hZ2VzL2kvMDAwLzA3Mi84NTEvb3JpZ2luYWwvc3BhY2V4LWlyaWRpdW00LWxhdW5jaC10YXJpcS1tYWxpay5qcGc=" +
+                "08323785_735653395_n.jpg"
+            }, {
+                id: "2",
+                description: "On a vacation!",
+                imageLink: "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/08/24/104670887-VacationExplainsTHUMBWEB.1910x1000.jpg"
+            }],
+            screen: 'photos'
+        };
+        this.removePhoto = this.removePhoto.bind(this);
+        this.navigate = this.navigate.bind(this);
+        console.log('constructor')
+    }
+
+    removePhoto(postRemoved) {
+        console.log(postRemoved.description);
+        this.setState(state => ({
+            posts: state.posts.filter(post => post !== postRemoved)
+        }));
+    }
+
+    navigate() {
+        this.setState({
+            screen: 'addPhoto'
+        })
+    }
+
+    componentDidMount() {
+        console.log('componentDidMount')
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('re-render');
+        console.log(prevState.posts);
+        console.log(this.state)
+    }
+
+    render() {
+        console.log('render');
+        return(
+            <div>
+                {
+                    this.state.screen === 'photos' && (
+                    <div>
+                        <Title title={"PhotoWall"}/>
+                        <PhotoWall posts={this.state.posts}
+                                   onRemovePhoto={this.removePhoto}
+                                   onNavigate={this.navigate}
+                        />
+                    </div>
+                    )
+                }
+                {
+                    this.state.screen === 'addPhoto' && (
+                    <div>
+                        <AddPhoto/>
+                    </div>
+                    )
+                }
+            </div>
+        )
+    }
+}
+
+export default Main
+================================================
+import React from 'react';
+import PropTypes from 'prop-types';
+import Photo from './Photo';
+
+
+function PhotoWall(props) {
+    return(
+        <div>
+            <button className="addIcon"
+                    onClick={props.onNavigate}
+            > </button>
+            <div className="photo-grid">
+                {props.posts.map((post, index) => <Photo key={index}
+                                                         post={post}
+                                                         onRemovePhoto={props.onRemovePhoto}
+                />)}
+            </div>
+        </div>
+    )
+}
+PhotoWall.propTypes = {
+    posts: PropTypes.array.isRequired,
+    onRemovePhoto: PropTypes.func.isRequired
+};
+export default PhotoWall
+================================================
+import React, {Component} from 'react';
+
+class AddPhoto extends Component {
+    render() {
+        return(
+            <h1>This is the page where we will add photos</h1>
+        )
+    }
+}
+export default AddPhoto
 
