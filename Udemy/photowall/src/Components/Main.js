@@ -18,8 +18,8 @@ class Main extends Component {
                            </div>
                        )} />
                 <Route exact path="/addphoto"
-                       render={({history}) => (
-                           <AddPhoto {...this.props} onHistory={history}/>
+                       render={() => (
+                           <AddPhoto {...this.props}/>
                        )}
                 />
             </div>
