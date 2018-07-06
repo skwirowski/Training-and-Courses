@@ -1,32 +1,27 @@
 import React, {Component} from 'react';
-import {Route} from 'react-router-dom';
-import Title from './Title';
+import {Route, Link} from 'react-router-dom';
 import PhotoWall from './PhotoWall';
 import AddPhoto from './AddPhoto';
 
 class Main extends Component {
-    constructor() {
-        super()
-    }
-
     render() {
+        console.log(this.props);
         return(
             <div>
+                <h1>
+                    <Link to="/">Photowall</Link>
+                </h1>
                 <Route exact path="/"
                        render={() => (
                            <div>
-                               <Title title={"PhotoWall"}/>
-                               <PhotoWall posts={this.props.posts} />
+                               <PhotoWall {...this.props} />
                            </div>
                        )} />
-                {/*<Route exact path="/addphoto"*/}
-                       {/*render={({history}) => (*/}
-                           {/*<AddPhoto onAddPhoto={(addedPost) => {*/}
-                               {/*this.addPhoto(addedPost);*/}
-                               {/*history.push('/')*/}
-                           {/*}} />*/}
-                       {/*)}*/}
-                {/*/>*/}
+                <Route exact path="/addphoto"
+                       render={({history}) => (
+                           <AddPhoto {...this.props} onHistory={history}/>
+                       )}
+                />
             </div>
         )
     }
