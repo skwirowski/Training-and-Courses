@@ -6,7 +6,8 @@ import Main from './Main';
 
 function mapStoreToProps(state) {
     return {
-        posts: state
+        posts: state.posts,
+        comments: state.comments
     }
 }
 
