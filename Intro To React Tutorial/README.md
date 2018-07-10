@@ -1,6 +1,6 @@
 # Tutorial: Intro to React
 
-## Repository contains tic-tac-toe game from [React Tutorial]("https://reactjs.org/tutorial/tutorial.html)
+## Repository contains tic-tac-toe game from [React Tutorial](https://reactjs.org/tutorial/tutorial.html)
 
 ### There is created a tic-tac-toe game here that:
 * Lets you play tic-tac-toe,
