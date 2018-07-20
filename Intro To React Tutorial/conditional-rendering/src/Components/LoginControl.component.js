@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './styles.css'
+
 class LoginControl extends React.Component {
   constructor(props) {
     super(props);
