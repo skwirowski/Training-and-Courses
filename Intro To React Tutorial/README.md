@@ -30,12 +30,24 @@
 * In rare cases you might want a component to hide itself even though it was rendered by another component. To do this return `null` instead of its render output.
 
 ## 5. Forms from [React Tutorial - Forms](https://reactjs.org/docs/forms.html)
+### HTML form elements maintain their own state, in React is typically kept in the state property. We can combine the two.
 * In HTML, form elements such as `<input>`, `<textarea>`, and `<select>` typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with `setState()`.
-
  We can combine the two by making the React state be the “single source of truth”. Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a “controlled component”.
  * With a controlled component, every state mutation will have an associated handler function. This makes it straightforward to modify or validate user input.
  * When you need to handle multiple controlled input elements, you can add a name attribute to each element and let the handler function choose what to do based on the value of `event.target.name`.
  * We used the ES6 `computed property name` syntax to update the state key corresponding to the given input name.
+ 
+ ## 6. Lifting state up [React Tutorial - Forms](https://reactjs.org/docs/lifting-state-up.html)
+ ### Temperature calculator that calculates whether the water would boil at a given temperature.
+ * React calls the function specified as onChange on the DOM `<input>`. In our case, this is the `handleChange` method in `TemperatureInput` component.
+ * The `handleChange` method in the `TemperatureInput` component calls `this.props.onTemperatureChange()`with the new desired value. Its props, including `onTemperatureChange`, were provided by its parent component, the `Calculator`.
+ * When it previously rendered, the `Calculator` has specified that `onTemperatureChange` of the Celsius `TemperatureInput` is the `Calculator’s` `handleCelsiusChange` method, and `onTemperatureChange` of the Fahrenheit `TemperatureInput` is the `Calculator’s` `handleFahrenheitChange` method. So either of these two `Calculator` methods gets called depending on which input we edited.
+ * Inside these methods, the `Calculator` component asks React to re-render itself by calling `this.setState()` with the new input value and the current scale of the input we just edited.
+ * React calls the `Calculator` component’s render method to learn what the UI should look like. The values of both inputs are recomputed based on the current temperature and the active scale. The temperature conversion is performed here.
+ * React calls the `render` methods of the individual `TemperatureInput` components with their new props specified by the `Calculator`. It learns what their UI should look like.
+ * React DOM updates the DOM to match the desired input values. The input we just edited receives its current value, and the other input is updated to the temperature after conversion.
+ 
+ Every update goes through the same steps so the inputs stay in sync.
 
 ---
 [My GitHub Profile](https://github.com/skwirowski "Paweł Skwirowski GitHub")
