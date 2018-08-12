@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Exercise 1</title>
-    <link rel="stylesheet" href="css/exercise1.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Exercise 1</title>
+  <link rel="stylesheet" href="css/exercise1.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 
 <body>
@@ -15,78 +15,81 @@
 </div>
 
 <script type="text/javascript">
-    // Tutaj miejsce na Twój skrypt
+  // Tutaj miejsce na Twój skrypt
 
-    const DouglasAdams = shelf.authors[0];
-    const TerryPratchett = shelf.authors[1];
+  const DouglasAdams = shelf.authors[0];
+  const TerryPratchett = shelf.authors[1];
 
-    let booksOnTheShelf = [
-        book1 = {
-            title: "The Day of the Jackal",
-            author: "Frederick Forsyth",
-            year: 1971
-        },
-        book2 = {
-            title: "Dune",
-            author: "Frank Herbert",
-            year: 1965
-        },
-        book3 = {
-            title: "Dune Messiah",
-            author: "Frank Herbert",
-            year: 1969
-        },
-        book4 = {
-            title: "Economics of Good and Evil",
-            author: "Tomáš Sedláček",
-            year: 2012
-        },
-        book5 = {
-            title: "Darkly Dreaming Dexter",
-            author: "Jeff Lindsay",
-            year: 2004
-        },
-        book6 = {
-            title: "The Unwomanly Face of War",
-            author: "Svetlana Alexievich",
-            year: 1987
-        },
+  const book1 = {
+    title: "The Day of the Jackal",
+    author: "Frederick Forsyth",
+    year: 1971
+  };
+  const book2 = {
+    title: "Dune",
+    author: "Frank Herbert",
+    year: 1965
+  };
+  const book3 = {
+    title: "Dune Messiah",
+    author: "Frank Herbert",
+    year: 1969
+  };
+  const book4 = {
+    title: "Economics of Good and Evil",
+    author: "Tomáš Sedláček",
+    year: 2012
+  };
+  const
+  book5 = {
+    title: "Darkly Dreaming Dexter",
+    author: "Jeff Lindsay",
+    year: 2004
+  };
+  const book6 = {
+      title: "The Unwomanly Face of War",
+      author: "Svetlana Alexievich",
+      year: 1987
+  };
 //*****************************************************
-        book7 = {
-            title: DouglasAdams.books[0].title,
-            author: DouglasAdams.name,
-            year: DouglasAdams.books[0].year
-        },
-        book8 = {
-            title: DouglasAdams.books[1].title,
-            author: DouglasAdams.name,
-            year: DouglasAdams.books[1].year
-        },
-        book9 = {
-            title: TerryPratchett.books[2].title,
-            author: TerryPratchett.name,
-            year: TerryPratchett.books[2].year
-        },
-        book10 = {
-            title: TerryPratchett.books[0].title,
-            author: TerryPratchett.name,
-            year: TerryPratchett.books[0].year
-        },
-        book11 = {
-            title: TerryPratchett.books[1].title,
-            author: TerryPratchett.name,
-            year: TerryPratchett.books[1].year
-        },
-        book12 = {
-            title: TerryPratchett.books[2].title,
-            author: TerryPratchett.name,
-            year: TerryPratchett.books[2].year
-        }
-    ];
+  const book7 = {
+      title: DouglasAdams.books[0].title,
+      author: DouglasAdams.name,
+      year: DouglasAdams.books[0].year
+  };
+  const book8 = {
+      title: DouglasAdams.books[1].title,
+      author: DouglasAdams.name,
+      year: DouglasAdams.books[1].year
+  };
+  const book9 = {
+      title: TerryPratchett.books[2].title,
+      author: TerryPratchett.name,
+      year: TerryPratchett.books[2].year
+  };
+  const book10 = {
+      title: TerryPratchett.books[0].title,
+      author: TerryPratchett.name,
+      year: TerryPratchett.books[0].year
+  };
+  const book11 = {
+      title: TerryPratchett.books[1].title,
+      author: TerryPratchett.name,
+      year: TerryPratchett.books[1].year
+  };
+  const book12 = {
+      title: TerryPratchett.books[2].title,
+      author: TerryPratchett.name,
+      year: TerryPratchett.books[2].year
+  };
 
-    for (let i=0; i < booksOnTheShelf.length; i++) {
+  const booksOnTheShelf = [
+    book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12
+  ];
+
+  for (let i = 0; i < booksOnTheShelf.length; i++) {
     renderBook(booksOnTheShelf[i]);
-    }
+  }
 
 </script>
 
