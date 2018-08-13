@@ -31,3 +31,7 @@ Wyświetl w konsoli liczby parzyste od 0 do 100 za pomocą pętli while.
 
 ### Zadanie 10
 Pobieraj od użytkownika liczby tak długo, aż wpiszę liczbę większą niż 50. Wtedy wyświetl tablicę złożoną z wpisanych dotychczas liczb na stronie.
+
+### Zadanie 11
+Wypisz na stronie elementy poniższej tablicy do elementu `"stop"` włącznie.<br>
+`var myArray = ['uczę', 'się', 'programować', 'stop', 'lubię', 'to']`.
