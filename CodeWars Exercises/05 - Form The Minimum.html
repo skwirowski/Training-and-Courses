@@ -31,18 +31,17 @@
 
 <script>
 
-  const minValue = values => {
-
+  const minValue = (values) => {
     const isDuplicated = (array, comparedItem) => {
-      let newArray = array.filter(item => item === comparedItem);
+      const newArray = array.filter(item => item === comparedItem);
       return newArray.length === 0;
     };
 
     const removeDuplicates = (array) => {
-      let newArray = [];
-      for(let i = 0; i < array.length; i++) {
-        if(isDuplicated(newArray, array[i])) {
-          newArray.push(array[i])
+      const newArray = [];
+      for (let i = 0; i < array.length; i += 1) {
+        if (isDuplicated(newArray, array[i])) {
+          newArray.push(array[i]);
         }
       }
       return newArray;
@@ -50,7 +49,7 @@
 
     const sortArrayAscending = array => array.sort((a, b) => a - b);
 
-    const joinedArrayNumbers = array => Number(array.join(""));
+    const joinedArrayNumbers = array => Number(array.join(''));
 
     const uniqueValuesArray = removeDuplicates(values);
     const sortedArray = sortArrayAscending(uniqueValuesArray);

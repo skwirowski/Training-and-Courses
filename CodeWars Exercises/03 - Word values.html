@@ -18,27 +18,26 @@
   </p>
 
 <script>
-  changeWordsIntoValues = array => {
+  changeWordsIntoValues = (array) => {
+    const changeStringIntoSingleCharactersArray = (_array) => {
+      const newArray = [];
 
-    const changeStringIntoSingleCharactersArray = array => {
-      let newArray = [];
-
-      for(let i = 0; i < array.length; i++) {
-        const charactersArray = array[i].split("");
+      for (let i = 0; i < _array.length; i += 1) {
+        const charactersArray = _array[i].split('');
         newArray.push(charactersArray);
       }
-      return newArray
+      return newArray;
     };
 
-    const removeSpaceCharacters = array => {
-      let itemsArray = [];
+    const removeSpaceCharacters = (_array) => {
+      const itemsArray = [];
 
-      for(let i = 0; i < array.length; i++) {
-        let singleItemsArray = [];
-        const singleArrayItem = array[i];
+      for (let i = 0; i < _array.length; i += 1) {
+        const singleItemsArray = [];
+        const singleArrayItem = _array[i];
 
-        for(let j = 0; j < singleArrayItem.length; j++) {
-          if(singleArrayItem[j] !== " ") {
+        for (let j = 0; j < singleArrayItem.length; j += 1) {
+          if (singleArrayItem[j] !== ' ') {
             singleItemsArray.push(singleArrayItem[j]);
           }
         }
@@ -47,26 +46,26 @@
       return itemsArray;
     };
 
-    const changeLettersIntoNumbers = array => {
-      let numbersArray = [];
+    const changeLettersIntoNumbers = (_array) => {
+      const numbersArray = [];
 
-      for(let i = 0; i < array.length; i++) {
-        let singleNumbersArray = [];
+      for (let i = 0; i < _array.length; i += 1) {
+        const singleNumbersArray = [];
 
-        array[i].map(letter => {
+        _array[i].map((letter) => {
           const numberFromLetter = parseInt(letter, 36) - 9;
-          singleNumbersArray.push(numberFromLetter);
+          return singleNumbersArray.push(numberFromLetter);
         });
         numbersArray.push(singleNumbersArray);
       }
-      return(numbersArray);
+      return numbersArray;
     };
 
-    const sumOfArrayItems = array => {
-      let newArray = [];
+    const sumOfArrayItems = (_array) => {
+      const newArray = [];
 
-      for(let i = 0; i < array.length; i++) {
-        const arraySum = array[i].reduce((a, b) => a + b, 0);
+      for (let i = 0; i < _array.length; i += 1) {
+        const arraySum = _array[i].reduce((a, b) => a + b, 0);
         const sumTimesIndex = arraySum * [i + 1];
         newArray.push(sumTimesIndex);
       }
