@@ -1,22 +1,19 @@
-const sortArrayAscending = array => array.sort((a, b) => a - b);
-
-function expressionMatter(a, b, c) {
-  const firstExpression = a + b + c;
-  const secondExpression = a * b * c;
-  const thirdExpression = (a + b) * c;
-  const fourthExpression = a * (b + c);
-  const fifthExpression = a + b * c;
-  const sixthExpression = a * b + c;
-  const arrayOfValues = [
-    firstExpression,
-    secondExpression,
-    thirdExpression,
-    fourthExpression,
-    fifthExpression,
-    sixthExpression
-  ];
-  const sortedArrayOfValues = sortArrayAscending(arrayOfValues);
-  const maximumValue = sortedArrayOfValues.slice(-1);
-  return maximumValue[0];
+function getMiddle(s) {
+  let middleCharacters;
+  if (s.length % 2 === 0) {
+    const firstMiddleCharacterNumber = s.length / 2;
+    const secondMiddleCharacterNumber = firstMiddleCharacterNumber + 1;
+    middleCharacters = s.slice(
+      firstMiddleCharacterNumber - 1,
+      secondMiddleCharacterNumber
+    );
+  } else {
+    const middleCharacterNumber = Math.ceil(s.length / 2);
+    middleCharacters = s.slice(
+      middleCharacterNumber - 1,
+      middleCharacterNumber
+    );
+  }
+  return middleCharacters;
 }
-expressionMatter(5, 10, 2);
+const s = 'abcdefghijk';
