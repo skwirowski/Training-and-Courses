@@ -1,19 +1,9 @@
-function getMiddle(s) {
-  let middleCharacters;
-  if (s.length % 2 === 0) {
-    const firstMiddleCharacterNumber = s.length / 2;
-    const secondMiddleCharacterNumber = firstMiddleCharacterNumber + 1;
-    middleCharacters = s.slice(
-      firstMiddleCharacterNumber - 1,
-      secondMiddleCharacterNumber
-    );
-  } else {
-    const middleCharacterNumber = Math.ceil(s.length / 2);
-    middleCharacters = s.slice(
-      middleCharacterNumber - 1,
-      middleCharacterNumber
-    );
-  }
-  return middleCharacters;
+const exampleArray = [-1, 2, -3, 4, 5, -6, 7, -8, 9];
+
+function positiveSum(arr) {
+  return arr
+    .filter(element => element >= 0)
+    .reduce((prev, curr) => prev + curr, 0);
 }
-const s = 'abcdefghijk';
+
+console.log(positiveSum(exampleArray));

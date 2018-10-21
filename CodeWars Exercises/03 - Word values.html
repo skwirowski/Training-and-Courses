@@ -86,6 +86,24 @@
   //     .split('')
   //     .map(b => (b.charCodeAt()-96))
   //     .reduce((acc, cur) => (acc+=cur),0)*(i+1));
+  //
+  // function wordValue(a) {
+  //   return a.map((string, stringIndex) =>
+  //     (+stringIndex + 1) * string.split('').reduce(
+  //     (prev, character) => character !== ' ' ? prev + character.charCodeAt(0) - 96 : prev,
+  //     0
+  //     )
+  //   );
+  // }
+  //
+  // function wordValue(a) {
+  //   return a.map((str, key) =>
+  //     ++key * str.split('').reduce(
+  //     (prev, char) => char !== ' ' ? prev + char.charCodeAt(0) - 96 : prev,
+  //     0
+  //     )
+  //   );
+  // }
 
 </script>
 

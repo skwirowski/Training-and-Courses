@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sum of positive</title>
+</head>
+<body>
+<p>
+  You get an array of numbers, return the sum of all of the positives ones.
+  <br>
+</p>
+<p>Example:<p>
+<pre>[1,-4,7,12] => 1 + 7 + 12 = 20</pre>
+<p>
+  Note: if there is nothing to sum, the sum is default to <b>0</b>.
+</p>
+<script>
+  const exampleArray = [-1, 2, -3, 4, 5, -6, 7, -8, 9];
+
+  function positiveSum(arr) {
+    return arr
+      .filter(element => element >= 0)
+      .reduce((prev, curr) => prev + curr, 0);
+  }
+
+  console.log(positiveSum(exampleArray));
+</script>
+</body>
+</html>
