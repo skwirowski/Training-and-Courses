@@ -1,31 +1,16 @@
-const exampleArray = [50, 39, 49, 6, 17, 28];
-const isPrime = (num) => {
-  if (num <= 1) {
-    return true;
-  }
-  if (num <= 3) {
-    return true;
-  }
-  if (num % 2 === 0 || num % 3 === 0) {
-    return false;
-  }
-  let i = 5;
-  while (i * i <= num) {
-    if (num % i === 0 || num % (i + 2) === 0) {
-      return false;
-    }
-    i += 6;
-  }
-  return true;
-};
+const exampleArray = [10, 20, 34, 36, 34, 23, 21, 20, 45, 29, 7, 35, 31];
 
-function minimumNumber(numbers) {
-  let sumOfNumbers = numbers.reduce((prev, curr) => prev + curr, 0);
-  let counter = 0;
-  while (!isPrime(sumOfNumbers)) {
-    sumOfNumbers += 1;
-    counter += 1;
+function riders(stations) {
+  let counter = 1;
+  let distance = 0;
+  for (let i = 0; i < stations.length; i += 1) {
+    distance += stations[i];
+    if (distance > 100) {
+      counter += 1;
+      distance = stations[i];
+    }
   }
   return counter;
 }
-console.log(minimumNumber(exampleArray));
+
+console.log(riders(exampleArray));
