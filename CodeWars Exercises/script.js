@@ -1,16 +1,12 @@
-const exampleArray = [10, 20, 34, 36, 34, 23, 21, 20, 45, 29, 7, 35, 31];
-
-function riders(stations) {
-  let counter = 1;
-  let distance = 0;
-  for (let i = 0; i < stations.length; i += 1) {
-    distance += stations[i];
-    if (distance > 100) {
-      counter += 1;
-      distance = stations[i];
-    }
-  }
-  return counter;
+// Method used in exercise uses formula log a (b ^ m) = m * log a (b)
+// Example numbers
+const num1 = [2, 10];
+const num2 = [2, 15];
+function comparePowers(n1, n2) {
+  const firstLog = Math.log(n1[0]) * n1[1];
+  const secondLog = Math.log(n2[0]) * n2[1];
+  if (firstLog > secondLog) return -1;
+  if (firstLog < secondLog) return 1;
+  return 0;
 }
-
-console.log(riders(exampleArray));
+console.log(comparePowers(num1, num2));
