@@ -1,8 +1,15 @@
-// Example array
-const exampleArray = [1, 6, 10, 18, 19, 19, 20];
+// Example numbers quantity
+const exampleQuantity = 2;
 
-function inAscOrder(arr) {
-  const sortedArray = () => arr.sort((a, b) => a - b);
-  return arr.join(',') === sortedArray().join(',');
-}
-console.log(inAscOrder(exampleArray));
+const isPalindrome = str => str === [...str].reverse().join('');
+
+const countPalindromes = (n) => {
+  let counter = 0;
+  for (let i = 1; i <= 10 ** n; i += 1) {
+    if (isPalindrome(i.toString())) {
+      counter += 1;
+    }
+  }
+  return counter;
+};
+console.log(countPalindromes(exampleQuantity));
