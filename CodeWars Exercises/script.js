@@ -1,15 +1,12 @@
-// Example numbers quantity
-const exampleQuantity = 2;
+const exA = [1, 2, 2, 2, 3]; // Example array a
+const exB = [2, 1]; // Example array b
 
-const isPalindrome = str => str === [...str].reverse().join('');
-
-const countPalindromes = (n) => {
-  let counter = 0;
-  for (let i = 1; i <= 10 ** n; i += 1) {
-    if (isPalindrome(i.toString())) {
-      counter += 1;
-    }
+const array_diff = (a, b) => {
+  let newArray = a;
+  for (let i = 0; i < b.length; i += 1) {
+    newArray = newArray.filter(val => val !== b[i]);
   }
-  return counter;
+  return newArray;
 };
-console.log(countPalindromes(exampleQuantity));
+
+console.log(array_diff(exA, exB));

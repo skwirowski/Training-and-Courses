@@ -1,6 +1,7 @@
 .idea
 .DS_Store
 .eslintrc.js
+.vscode
 node_modules
 package.json
 package-lock.json
