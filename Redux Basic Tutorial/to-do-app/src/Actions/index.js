@@ -1,6 +1,6 @@
 // action creators
 let nextToDoId = 0;
-export const addToDo = text => ({
+export const addTodo = text => ({
 	type: 'ADD_TODO',
 	id: nextToDoId += 1,
 	text
@@ -11,7 +11,7 @@ export const setVisibilityFilter = filter => ({
 	filter
 });
 
-export const toggleToDo = id => ({
+export const toggleTodo = id => ({
 	type: 'TOGGLE_TODO',
 	id
 });
