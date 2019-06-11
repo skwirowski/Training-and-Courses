@@ -1,0 +1,9 @@
+const ADD_PERSON = 'ADD_PERSON';
+const REMOVE_PERSON = 'REMOVE_PERSON';
+const RESET_PEOPLE = 'RESET_PEOPLE';
+
+export default {
+    ADD_PERSON,
+    REMOVE_PERSON,
+    RESET_PEOPLE
+}

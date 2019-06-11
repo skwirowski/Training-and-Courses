@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 		'Arnold Schwarzenegger',
 		'Jean-Claude van Damme'
 	]
-}
+};
 
 const actorsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
