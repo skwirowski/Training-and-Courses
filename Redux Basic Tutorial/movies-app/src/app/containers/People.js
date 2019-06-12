@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { getPeople } from '../people/redux/operations';
 
-const People = ({ people }) => {
+const People = ({ people, getPeople }) => {
+    useEffect(() => {
+        getPeople();
+    }, []);
+
     return (
         <div>
             <h2>People</h2>
@@ -18,4 +23,10 @@ const mapStateToProps = (state) => ({
     people: state.people
 });
 
-export default connect(mapStateToProps, {})(People);
+const mapDispatchToProps = dispatch => ({
+    getPeople: () => dispatch(getPeople())
+});
+
+export default connect(
+    mapStateToProps, mapDispatchToProps
+)(People);
