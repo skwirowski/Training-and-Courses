@@ -1,4 +1,4 @@
-import { combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 
 const userReducer = (state = {}, action) => {
     switch (action.type) {
@@ -10,6 +10,8 @@ const userReducer = (state = {}, action) => {
             state = { ...state, age: action.payload };
             break;
         }
+        default:
+        return state;
     }
     return state;
 };
@@ -18,16 +20,24 @@ const tweetsReducer = (state = [], action) => {
     return state;
 };
 
+const logger = (store) => (next) => (action) => {
+    console.log('action fired', action);
+    next(action);
+}
+
+const middleware = applyMiddleware(logger);
+
 const reducers = combineReducers({
     user: userReducer,
     tweets: tweetsReducer,
 })
 
-const store = createStore(reducers);
+const store = createStore(reducers, middleware);
 
 store.subscribe(() => {
-    console.log('store changed', store.getState())
+    console.log('store changed', store.getState());
 });
+
 
 store.dispatch({ type: 'CHANGE_NAME', payload: 'Paul' });
 store.dispatch({ type: 'CHANGE_AGE', payload: 33 });
