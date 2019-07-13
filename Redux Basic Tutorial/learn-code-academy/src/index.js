@@ -13,20 +13,20 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_USERS_START": {
+    case "FETCH_USERS_PENDING": {
       state = { ...state, fetching: true };
       break;
     }
-    case "FETCH_USERS_ERROR": {
+    case "FETCH_USERS_REJECTED": {
       state = { ...state, fetching: false, error: action.payload };
       break;
     }
-    case "RECEIVE_USERS": {
+      case "FETCH_USERS_FULFILLED": {
       state = {
         ...state,
         fetching: false,
         fetched: true,
-        users: action.payload
+        users: action.payload.data.results
       };
       break;
     }
@@ -39,14 +39,7 @@ const reducer = (state = initialState, action) => {
 const middleware = applyMiddleware(logger, thunk, promise);
 const store = createStore(reducer, middleware);
 
-store.dispatch(dispatch => {
-  dispatch({ type: "FETCH_USERS_START" });
-  axios
-    .get("https://randomuser.me/api/?results=5")
-    .then(response => {
-      dispatch({ type: "RECEIVE_USERS", payload: response.data.results });
-    })
-    .catch(error => {
-      dispatch({ type: "FETCH_USERS_ERROR", payload: error });
-    });
+store.dispatch({
+    type: "FETCH_USERS",
+    payload: axios.get("https://randomuser.me/api/?results=5"),
 });
