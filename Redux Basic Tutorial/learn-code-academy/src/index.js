@@ -1,43 +1,52 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { applyMiddleware, createStore } from "redux";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
+import axios from "axios";
+import promise from "redux-promise-middleware";
 
-const userReducer = (state = {}, action) => {
-    switch (action.type) {
-        case 'CHANGE_NAME': {
-            state = { ...state, name: action.payload };
-            break;
-        }
-        case 'CHANGE_AGE': {
-            state = { ...state, age: action.payload };
-            break;
-        }
-        default:
-        return state;
+const initialState = {
+  fetching: false,
+  fetched: false,
+  users: [],
+  error: null
+};
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "FETCH_USERS_START": {
+      state = { ...state, fetching: true };
+      break;
     }
-    return state;
+    case "FETCH_USERS_ERROR": {
+      state = { ...state, fetching: false, error: action.payload };
+      break;
+    }
+    case "RECEIVE_USERS": {
+      state = {
+        ...state,
+        fetching: false,
+        fetched: true,
+        users: action.payload
+      };
+      break;
+    }
+    default:
+      return state;
+  }
+  return state;
 };
 
-const tweetsReducer = (state = [], action) => {
-    return state;
-};
+const middleware = applyMiddleware(logger, thunk, promise);
+const store = createStore(reducer, middleware);
 
-const logger = (store) => (next) => (action) => {
-    console.log('action fired', action);
-    next(action);
-}
-
-const middleware = applyMiddleware(logger);
-
-const reducers = combineReducers({
-    user: userReducer,
-    tweets: tweetsReducer,
-})
-
-const store = createStore(reducers, middleware);
-
-store.subscribe(() => {
-    console.log('store changed', store.getState());
+store.dispatch(dispatch => {
+  dispatch({ type: "FETCH_USERS_START" });
+  axios
+    .get("https://randomuser.me/api/?results=5")
+    .then(response => {
+      dispatch({ type: "RECEIVE_USERS", payload: response.data.results });
+    })
+    .catch(error => {
+      dispatch({ type: "FETCH_USERS_ERROR", payload: error });
+    });
 });
-
-
-store.dispatch({ type: 'CHANGE_NAME', payload: 'Paul' });
-store.dispatch({ type: 'CHANGE_AGE', payload: 33 });
