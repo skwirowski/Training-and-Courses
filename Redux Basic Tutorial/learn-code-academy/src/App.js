@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import tweetActions from './actions/tweetActions';
+import usersActions from './actions/usersActions';
 import logo from './logo.svg';
 import './App.css';
 
@@ -23,4 +26,9 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  fetchTweets: tweets => dispatch(tweetActions.fetchTweets()),
+  
+});
+
+export default connect(null, mapDispatchToProps)(App);
