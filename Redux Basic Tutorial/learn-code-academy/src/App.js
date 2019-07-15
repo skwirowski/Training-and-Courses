@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import tweetActions from './actions/tweetActions';
 import usersActions from './actions/usersActions';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App(props) {
+  useEffect(() => {
+    props.fetchTweets();
+    // props.fetchUsers();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -27,8 +32,8 @@ function App() {
 }
 
 const mapDispatchToProps = dispatch => ({
-  fetchTweets: tweets => dispatch(tweetActions.fetchTweets()),
-  
+  fetchTweets: () => dispatch(tweetActions.fetchTweets()),
+  fetchUsers: () => dispatch(usersActions.fetchUsers()),
 });
 
 export default connect(null, mapDispatchToProps)(App);
