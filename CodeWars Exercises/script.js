@@ -1,27 +1,47 @@
-const exStr = 'scout';
-const exCode = [20, 12, 18, 30, 21];
+const exampleArray = [1, 2, 5, 6, 5, 2];
 
-const findTheKeyArr = (message, code) => {
-  return [...message].map((item, index) => code[index] - item.charCodeAt(0) + 96);
-};
+function duplicates(array) {
+  let arrayCopy = [...array];
+  let counter = 0;
 
-const checkKey = (code, message, key) => {
-  let resultKey;
-  for (let i = 0; i <= message.length; i += 1) {
-    const keyArr = key.slice(0, i);
-    const word = String
-      .fromCharCode(
-        ...code.map((item, index) => item - Number(keyArr[index % keyArr.length]) + 96)
-      );
-    resultKey = keyArr;
-    if (word === message) { break; }
+  for (let i = 0; i < arrayCopy.length; i = 0) {
+    const prevArrLength = arrayCopy.length;
+
+    arrayCopy = arrayCopy.filter(item => item !== arrayCopy[i]);
+
+    const currArrLength = arrayCopy.length;
+    const pairsCount = Math.floor((prevArrLength - currArrLength) / 2);
+
+    counter += pairsCount;
   }
-  return Number(resultKey.join(''));
-};
+  return counter;
+}
 
-const findTheKey = (message, code) => {
-  const keyArr = findTheKeyArr(message, code);
-  return checkKey(code, message, keyArr);
-};
+console.log(duplicates(exampleArray));
 
-console.log(findTheKey(exStr, exCode));
+// Other solutions from CodeWars
+//
+//
+// function duplicates(array) {
+//   let res = 0, odd = new Set();
+//   for (let x of array) {
+//     if (odd.delete(x))
+//       res++;
+//     else
+//       odd.add(x);
+//   }
+//   return res;
+// }
+//
+//
+// function duplicates(a) {
+//   var count = 0;
+//   a.sort((b, c) => b - c);
+//   console.log(a)
+//   for (var i = 0; i < a.length; ++i)
+//     if (a[i] == a[i + 1]) {
+//       count++;
+//       ++i;
+//     }
+//   return count
+// }
