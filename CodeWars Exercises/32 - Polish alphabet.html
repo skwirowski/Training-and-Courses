@@ -28,7 +28,29 @@
   </pre>
 
   <script>
+    // this is very short way of replacing diacritical marks
+
+    const str = "ĄąĆćĘęŁłŃńÓóŚśŻżŹźAA"
+
+      function correctPolishLetters(string) {
+        return string
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/\u0141/g, 'L')
+          .replace(/\u0142/g, 'l');
+      }
+
+      console.log(correctPolishLetters(str));
+
+      /*
+      Three things are happening here:
+        - normalize()ing to NFD Unicode normal form decomposes combined graphemes into the combination of simple ones. The è of Crème ends up expressed as e + ̀.
+        - Using a regex character class (https://www.regular-expressions.info/charclass.html) to match the U+0300 → U+036F range, it is now trivial to globally get rid of the diacritics, which the Unicode standard conveniently groups as the Combining Diacritical Marks (https://en.wikipedia.org/wiki/Combining_Diacritical_Marks) Unicode block.
+        - ł is a letter in itself, not an accented L. Therefore it should not be changed to l. ł does not fall within the character class range.
+      */
+
     // this is my new shorter solution using JavaScript embedded methods
+/* 
     function correctPolishLetters(string) {
       const lettersWithDiacriticalMarks = 'ĄąĆćĘęŁłŃńÓóŚśŻżŹź';
       const lettersCharacters = 'AaCcEeLlNnOoSsZzZz';
@@ -44,6 +66,7 @@
 
       return newArr.join('');
     }
+     */
 /*
     function correctPolishLetters(string) {
         const diacriticsArray = string.split('');

@@ -1,17 +1,11 @@
+const str = "ĄąĆćĘęŁłŃńÓóŚśŻżŹźAA"
+
 function correctPolishLetters(string) {
-  const lettersWithDiacriticalMarks = 'ĄąĆćĘęŁłŃńÓóŚśŻżŹź';
-  const lettersCharacters = 'AaCcEeLlNnOoSsZzZz';
-
-  const newArr = string.split('').map(item => {
-    const diacriticalMarkIndex = lettersWithDiacriticalMarks.indexOf(item);
-
-    if (diacriticalMarkIndex === -1) {
-      return item;
-    }
-    return lettersCharacters.substr(diacriticalMarkIndex, 1);
-  });
-
-  return newArr.join('');
+  return string
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\u0141/g, 'L')
+    .replace(/\u0142/g, 'l');
 }
 
-console.log(correctPolishLetters('ĄąĆćĘęŁłŃńÓóŚśŻżŹźAA'));
+console.log(correctPolishLetters(str));
