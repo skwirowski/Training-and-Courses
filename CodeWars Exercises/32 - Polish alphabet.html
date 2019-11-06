@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Polish alphabet</title>
+</head>
+
+<body>
+  <p>There are 32 letters in the Polish alphabet: 9 vowels and 23 consonants.</p>
+  <p>Your task is to change the letters with diacritics:</p>
+  <pre>
+    ą -> a,
+    ć -> c,
+    ę -> e,
+    ł -> l,
+    ń -> n,
+    ó -> o,
+    ś -> s,
+    ź -> z,
+    ż -> z
+  </pre>
+  <p>and print out the string without the use of the Polish letters.</p>
+  <p>Example:</p>
+  <pre>
+    Input: "Jędrzej Błądziński"
+    Output: "Jedrzej Bladzinski"
+  </pre>
+
+  <script>
+    function correctPolishLetters(string) {
+        const diacriticsArray = string.split('');
+        const noDiacriticsArray = [];
+        const lettersWithDiacriticalMarks = 'ĄąĆćĘęŁłŃńÓóŚśŻżŹź';
+        const lettersCharacters = 'AaCcEeLlNnOoSsZzZz';
+
+        for (let i = 0; i < diacriticsArray.length; i += 1) {
+          const diacriticalMarkIndex = lettersWithDiacriticalMarks.indexOf(
+            diacriticsArray[i],
+          );
+
+          if (diacriticalMarkIndex === -1) {
+            noDiacriticsArray[i] = diacriticsArray[i];
+          } else {
+            noDiacriticsArray[i] = lettersCharacters.substr(diacriticalMarkIndex, 1);
+          }
+        }
+
+        return noDiacriticsArray.join('');
+      }
+
+      console.log(correctPolishLetters('ĄąĆćĘęŁłŃńÓóŚśŻżŹźAA'));
+
+// Other solutions
+
+/*
+  function correctPolishLetters (string) {
+    var dict = {'ą':'a','ć':'c','ę':'e','ł':'l','ń':'n','ó':'o','ś':'s','ź':'z','ż':'z'};
+    return string.replace(/[ąćęłńóśźż]/g, match => dict[match]);
+  }
+*/
+
+/*
+  var polishLetters = {
+    "ą": "a",
+    "ć": "c",
+    "ę": "e",
+    "ł": "l",
+    "ń": "n",
+    "ó": "o",
+    "ś": "s",
+    "ź": "z",
+    "ż": "z",
+  };
+
+  function correctPolishLetters (string) {
+    return string.split('').map((c) => polishLetters[c] || c).join("");
+  }
+*/
+  </script>
+</body>
+
+</html>

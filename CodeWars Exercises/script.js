@@ -1,38 +1,22 @@
-/* eslint-disable no-underscore-dangle */
-class Person {
-  constructor(firstName = 'John', lastName = 'Doe', age = 0, gender = 'Male') {
-    this._firstName = firstName;
-    this._lastName = lastName;
-    this._age = age;
-    this._gender = gender;
+function correctPolishLetters(string) {
+  const diacriticsArray = string.split('');
+  const noDiacriticsArray = [];
+  const lettersWithDiacriticalMarks = 'ĄąĆćĘęŁłŃńÓóŚśŻżŹź';
+  const lettersCharacters = 'AaCcEeLlNnOoSsZzZz';
+
+  for (let i = 0; i < diacriticsArray.length; i += 1) {
+    const diacriticalMarkIndex = lettersWithDiacriticalMarks.indexOf(
+      diacriticsArray[i],
+    );
+
+    if (diacriticalMarkIndex === -1) {
+      noDiacriticsArray[i] = diacriticsArray[i];
+    } else {
+      noDiacriticsArray[i] = lettersCharacters.substr(diacriticalMarkIndex, 1);
+    }
   }
 
-  get firstName() {
-    return this._firstName;
-  }
-
-  get lastName() {
-    return this._lastName;
-  }
-
-  get age() {
-    return this._age;
-  }
-
-  get gender() {
-    return this._gender;
-  }
-
-  sayFullName() {
-    return `${this.firstName} ${this.lastName}`;
-  }
-
-  static greetExtraTerrestrials(raceName) {
-    return `Welcome to Planet Earth ${raceName}`;
-  }
+  return noDiacriticsArray.join('');
 }
 
-const somebody = new Person();
-
-console.log(somebody.sayFullName());
-console.log(Person.greetExtraTerrestrials('Martians'));
+console.log(correctPolishLetters('ĄąĆćĘęŁłŃńÓóŚśŻżŹźAA'));
