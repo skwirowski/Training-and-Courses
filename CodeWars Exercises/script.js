@@ -1,47 +1,38 @@
-const exampleArray = [1, 2, 5, 6, 5, 2];
-
-function duplicates(array) {
-  let arrayCopy = [...array];
-  let counter = 0;
-
-  for (let i = 0; i < arrayCopy.length; i = 0) {
-    const prevArrLength = arrayCopy.length;
-
-    arrayCopy = arrayCopy.filter(item => item !== arrayCopy[i]);
-
-    const currArrLength = arrayCopy.length;
-    const pairsCount = Math.floor((prevArrLength - currArrLength) / 2);
-
-    counter += pairsCount;
+/* eslint-disable no-underscore-dangle */
+class Person {
+  constructor(firstName = 'John', lastName = 'Doe', age = 0, gender = 'Male') {
+    this._firstName = firstName;
+    this._lastName = lastName;
+    this._age = age;
+    this._gender = gender;
   }
-  return counter;
+
+  get firstName() {
+    return this._firstName;
+  }
+
+  get lastName() {
+    return this._lastName;
+  }
+
+  get age() {
+    return this._age;
+  }
+
+  get gender() {
+    return this._gender;
+  }
+
+  sayFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  static greetExtraTerrestrials(raceName) {
+    return `Welcome to Planet Earth ${raceName}`;
+  }
 }
 
-console.log(duplicates(exampleArray));
+const somebody = new Person();
 
-// Other solutions from CodeWars
-//
-//
-// function duplicates(array) {
-//   let res = 0, odd = new Set();
-//   for (let x of array) {
-//     if (odd.delete(x))
-//       res++;
-//     else
-//       odd.add(x);
-//   }
-//   return res;
-// }
-//
-//
-// function duplicates(a) {
-//   var count = 0;
-//   a.sort((b, c) => b - c);
-//   console.log(a)
-//   for (var i = 0; i < a.length; ++i)
-//     if (a[i] == a[i + 1]) {
-//       count++;
-//       ++i;
-//     }
-//   return count
-// }
+console.log(somebody.sayFullName());
+console.log(Person.greetExtraTerrestrials('Martians'));
