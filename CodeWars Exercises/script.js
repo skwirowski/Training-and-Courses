@@ -1,11 +1,14 @@
-const str = "ĄąĆćĘęŁłŃńÓóŚśŻżŹźAA"
+function ArithmeticSequenceSum(a, r, n, sum = 0) {
+  if (n <= 0) {
+    return sum;
+  }
 
-function correctPolishLetters(string) {
-  return string
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\u0141/g, 'L')
-    .replace(/\u0142/g, 'l');
+  sum += a + (n - 1) * r;
+
+  return ArithmeticSequenceSum(a, r, n - 1, sum);
 }
 
-console.log(correctPolishLetters(str));
+// This is recursive approach version
+// Arithmetic progression general formula an = a1 + (n - 1) * r
+
+console.log(ArithmeticSequenceSum(2, 3, 5));
