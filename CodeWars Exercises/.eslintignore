@@ -1,0 +1,8 @@
+# ignore everything
+*
+
+# add scripts directory
+!/scripts/*
+
+# add script.js file
+!script.js

@@ -1,43 +1,77 @@
-const exampleOne = '2 glasses of wine and 1 shot';
-const exampleTwo = '1 beer';
-const exapmleThree = '1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer';
+// @ts-check
 
-const hydrate = (s) => {
-  const drinksQuantity = s.match(/[1-9]/g).reduce((tot, curr) => tot + Number(curr), 0);
-  return `${drinksQuantity} ${drinksQuantity > 1 ? 'glasses' : 'glass'} of water`;
+const messageExample = 'I should have known that you would have a perfect answer for me!!!';
+// ? "J vltasl rlhr ", "zdfog odxr ypw", " atasl rlhr p ", "gwkzzyq zntyhv", " lvz wp!!!"
+
+//* Helper data
+const alphabetChars = 'abcdefghijklmnopqrstuvwxyz';
+
+//* Helper functions
+const transformStringToUpperCase = (lowerCaseString) =>
+  lowerCaseString
+    .split('')
+    .map((char) => char.toUpperCase())
+    .join('');
+
+const shiftCharacters = (string, shift) => {
+  const fixedStringSlice = string.slice(shift);
+  const shiftedStringSlice = string.slice(0, shift);
+
+  return fixedStringSlice + shiftedStringSlice;
 };
 
-function hydrate(s) {
-  //* Arrange
-  const digitsRegEx = /[1-9]/g;
-  const createArrayOfMatchedStrings = (string, regularEx) => string.match(regularEx);
-  const transformStringToNumber = (string) => Number(string);
-  const changeArrayOfStringsToArrayOfNumbers = (array, transformationCallback) => {
-    return array.map((item) => transformationCallback(item));
-  };
-  const sumOfArrayItems = (array) => array.reduce((total, current) => total + current, 0);
-  const getResultDependingOnCondition = (condition, ifTrue, ifFalse) =>
-    condition ? ifTrue : ifFalse;
+const findCharacterIndex = (char, string) => string.indexOf(char);
 
-  //* Act
-  const getDrinksFromDescription = createArrayOfMatchedStrings(s, digitsRegEx);
-  const transformDrinksStringsToDigits = changeArrayOfStringsToArrayOfNumbers(
-    getDrinksFromDescription,
-    transformStringToNumber,
-  );
-  const totalDrinksQuantity = sumOfArrayItems(transformDrinksStringsToDigits);
-  const wordRightForm = getResultDependingOnCondition(
-    totalDrinksQuantity === 1,
-    'glass',
-    'glasses',
-  );
+const switchCharacters = (inputString, baseString, shift) => {
+  const upperCaseBaseString = transformStringToUpperCase(baseString);
+  const iterations = inputString.length;
+  const maxShift = baseString.length - 1;
+  let switchedString = '';
+  let shiftIncrement = shift;
 
-  //* Resolve
-  const getHydrationRecommendation = `${totalDrinksQuantity} ${wordRightForm} of water`;
+  for (let i = 0; i < iterations; i += 1) {
+    const modifier = shiftCharacters(baseString, shiftIncrement);
+    const lowerCaseCheck = findCharacterIndex(inputString[i], baseString);
+    const upperCaseCheck = findCharacterIndex(inputString[i], upperCaseBaseString);
 
-  return getHydrationRecommendation;
+    if (lowerCaseCheck !== -1) {
+      switchedString += modifier[lowerCaseCheck];
+    } else if (upperCaseCheck !== -1) {
+      switchedString += transformStringToUpperCase(modifier)[upperCaseCheck];
+    } else {
+      switchedString += inputString[i];
+    }
+
+    shiftIncrement >= maxShift ? (shiftIncrement = 0) : (shiftIncrement += 1);
+  }
+
+  return switchedString;
+};
+
+const findDivision = (string, divisor) => Math.ceil(string.length / divisor);
+
+const divideString = (string, parts) => {
+  const divisor = findDivision(string, parts);
+  const newArray = [];
+  let repeats = 5;
+
+  for (let i = 0; repeats > 0; i += divisor) {
+    const part = string.substr(i, divisor) || 0;
+    newArray.push(part);
+    repeats -= 1;
+  }
+
+  return newArray;
+};
+
+function movingShift(s, shift) {
+  return switchCharacters(s, alphabetChars, shift);
 }
 
-console.log(hydrate(exampleOne));
-console.log(hydrate(exampleTwo));
-console.log(hydrate(exapmleThree));
+// function demovingShift(arr, shift) {
+//   return "";
+// }
+
+console.log(movingShift(messageExample, 1));
+console.log(findDivision('iiiiiiiiiiiiiiiii', 5));
+console.log(divideString(movingShift(messageExample, 1), 5));

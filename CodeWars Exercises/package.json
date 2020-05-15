@@ -1,0 +1,22 @@
+{
+  "name": "codewars-exercises",
+  "version": "1.0.0",
+  "description": "My exercises from CodeWars",
+  "main": "script.js",
+  "repository": "https://github.com/skwirowski/Programming-Exercises",
+  "author": "Pawel Skwirowski",
+  "license": "MIT",
+  "scripts": {
+    "format:eslint": "eslint --config ./.eslintrc.js ./** --fix",
+    "format:prettier": "prettier --config ./.prettierc.js ./** --write",
+    "format": "yarn format:eslint & yarn format:prettier"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "prettier": "^2.0.5"
+  }
+}
