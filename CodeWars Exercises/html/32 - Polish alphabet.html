@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Polish alphabet</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Polish alphabet</title>
-</head>
-
-<body>
-  <p>There are 32 letters in the Polish alphabet: 9 vowels and 23 consonants.</p>
-  <p>Your task is to change the letters with diacritics:</p>
-  <pre>
+  <body>
+    <p>There are 32 letters in the Polish alphabet: 9 vowels and 23 consonants.</p>
+    <p>Your task is to change the letters with diacritics:</p>
+    <pre>
     ą -> a,
     ć -> c,
     ę -> e,
@@ -19,18 +18,20 @@
     ś -> s,
     ź -> z,
     ż -> z
-  </pre>
-  <p>and print out the string without the use of the Polish letters.</p>
-  <p>Example:</p>
-  <pre>
+  </pre
+    >
+    <p>and print out the string without the use of the Polish letters.</p>
+    <p>Example:</p>
+    <pre>
     Input: "Jędrzej Błądziński"
     Output: "Jedrzej Bladzinski"
-  </pre>
+  </pre
+    >
 
-  <script>
-    // this is very short way of replacing diacritical marks
+    <script>
+      // this is very short way of replacing diacritical marks
 
-    const str = "ĄąĆćĘęŁłŃńÓóŚśŻżŹźAA"
+      const str = 'ĄąĆćĘęŁłŃńÓóŚśŻżŹźAA';
 
       function correctPolishLetters(string) {
         return string
@@ -49,8 +50,8 @@
         - ł is a letter in itself, not an accented L. Therefore it should not be changed to l. ł does not fall within the character class range.
       */
 
-    // this is my new shorter solution using JavaScript embedded methods
-/* 
+      // this is my new shorter solution using JavaScript embedded methods
+      /* 
     function correctPolishLetters(string) {
       const lettersWithDiacriticalMarks = 'ĄąĆćĘęŁłŃńÓóŚśŻżŹź';
       const lettersCharacters = 'AaCcEeLlNnOoSsZzZz';
@@ -67,7 +68,7 @@
       return newArr.join('');
     }
      */
-/*
+      /*
     function correctPolishLetters(string) {
         const diacriticsArray = string.split('');
         const noDiacriticsArray = [];
@@ -92,16 +93,16 @@
       console.log(correctPolishLetters('ĄąĆćĘęŁłŃńÓóŚśŻżŹźAA'));
  */
 
-// Other solutions
+      // Other solutions
 
-/*
+      /*
   function correctPolishLetters (string) {
     var dict = {'ą':'a','ć':'c','ę':'e','ł':'l','ń':'n','ó':'o','ś':'s','ź':'z','ż':'z'};
     return string.replace(/[ąćęłńóśźż]/g, match => dict[match]);
   }
 */
 
-/*
+      /*
   var polishLetters = {
     "ą": "a",
     "ć": "c",
@@ -118,7 +119,6 @@
     return string.split('').map((c) => polishLetters[c] || c).join("");
   }
 */
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>

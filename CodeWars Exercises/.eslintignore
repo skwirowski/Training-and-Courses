@@ -1,8 +1,6 @@
-# ignore everything
-*
-
-# add scripts directory
-!/scripts/*
-
-# add script.js file
-!script.js
+# ignore html directory
+**/html
+# ignore node_modules directory
+**/node_modules
+# ignore dist directory
+**/dist
