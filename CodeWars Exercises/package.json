@@ -10,8 +10,10 @@
     "format:eslint": "eslint script.js scripts/*.js --fix",
     "format:prettier": "prettier script.js scripts/*.js --write",
     "format": "yarn format:eslint & yarn format:prettier",
-    "test": "",
-    "webpack": "webpack --config webpack.config.js"
+    "webpack": "webpack --config webpack.config.js",
+    "test": "yarn karma start --single-run",
+    "test:debug": "yarn karma start --browsers Chrome",
+    "test:watch": "yarn karma start --auto-watch"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
