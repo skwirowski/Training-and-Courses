@@ -56,7 +56,7 @@ const divideString = (string, parts) => {
   let repeats = 5;
 
   for (let i = 0; repeats > 0; i += divisor) {
-    const part = string.substr(i, divisor) || 0;
+    const part = string.substr(i, divisor) || '';
     newArray.push(part);
     repeats -= 1;
   }
