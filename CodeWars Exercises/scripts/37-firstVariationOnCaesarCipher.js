@@ -32,6 +32,19 @@ const shiftCharacters = (string, shift) => {
 };
 
 /**
+ * Slices specified number of characters from the end of the given string and places them at the beginning
+ * @param { string } string
+ * @param { number } shift - number of letters to shift
+ * @returns { string }
+ */
+const unshiftCharacters = (string, shift) => {
+  const fixedStringSlice = string.slice(0, -shift);
+  const unshiftedStringSlice = string.slice(-shift);
+
+  return unshiftedStringSlice + fixedStringSlice;
+};
+
+/**
  * Finds index of first occurrence of a specified character in given string
  * @param { string } char - character searched in string
  * @param { string } string - searched string
@@ -54,9 +67,10 @@ const findDivision = (string, divisor) => Math.ceil(string.length / divisor);
  * @param { string } inputString - string to cipher
  * @param { string } baseString - letters sequence for ciphering use eg. english alphabet
  * @param { number } shift - initial characters shift size
+ * @param { function } shiftCallback - callback function; one of base string modification functions: shiftCharacters or unshiftCharacters
  * @returns { string } - ciphered string
  */
-const switchCharacters = (inputString, baseString, shift) => {
+const switchCharacters = (inputString, baseString, shift, shiftCallback) => {
   const upperCaseBaseString = transformStringToUpperCase(baseString);
   const iterations = inputString.length;
   const maxShift = baseString.length - 1;
@@ -64,7 +78,7 @@ const switchCharacters = (inputString, baseString, shift) => {
   let shiftIncrement = shift;
 
   for (let i = 0; i < iterations; i += 1) {
-    const modifier = shiftCharacters(baseString, shiftIncrement);
+    const modifier = shiftCallback(baseString, shiftIncrement);
     const lowerCaseCheck = findCharacterIndex(inputString[i], baseString);
     const upperCaseCheck = findCharacterIndex(inputString[i], upperCaseBaseString);
 
@@ -102,12 +116,37 @@ const divideString = (string, parts) => {
   return stringPartsArray;
 };
 
+/**
+ * Executes ciphering and division of given string using specified initial shift value
+ * @param { string } s - string to perform ciphering and division on
+ * @param { number } shift - initial characters shift size
+ * @returns { Array } - array of divided string parts
+ */
+const movingShift = (s, shift) => {
+  const cipheredString = switchCharacters(s, alphabetChars, shift, shiftCharacters);
+  return divideString(cipheredString, 5);
+};
+
+/**
+ * Executes deciphering and joining of given array using specified initial shift value
+ * @param { Array } arr - array to perform deciphering and division on
+ * @param { number } shift - initial characters shift size
+ * @returns { string } - complete string including deciphered message
+ */
+const demovingShift = (arr, shift) => {
+  const inputStringFromArray = arr.join('');
+  return switchCharacters(inputStringFromArray, alphabetChars, shift, unshiftCharacters);
+};
+
 export default {
   alphabetChars,
   transformStringToUpperCase,
   shiftCharacters,
+  unshiftCharacters,
   findCharacterIndex,
   switchCharacters,
   findDivision,
   divideString,
+  movingShift,
+  demovingShift,
 };
