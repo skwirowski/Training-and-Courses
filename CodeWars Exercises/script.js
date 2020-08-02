@@ -1,1 +1,1 @@
-// @ts-check
+// script file for testing purposes
