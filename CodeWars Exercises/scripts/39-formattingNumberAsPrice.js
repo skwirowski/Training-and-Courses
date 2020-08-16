@@ -101,7 +101,7 @@ const divideStringIntoPartsArray = (whole) => {
 const createFractionPart = (string) => {
   if (isFloatPoint(string)) {
     const fractionDigits = getFirstTwoFractionDigits(string);
-    return isFractionPartComplete(fractionDigits) ? fractionDigits : fractionDigits + '0';
+    return isFractionPartComplete(fractionDigits) ? fractionDigits : `${fractionDigits}0`;
   }
   return '.00';
 };

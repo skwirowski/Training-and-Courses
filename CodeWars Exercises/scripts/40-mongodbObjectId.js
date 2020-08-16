@@ -39,7 +39,7 @@ function isValidLength(string) {
 }
 
 function hasInvalidChars(string) {
-  return string.match(/[A-Zg-z~!@#$%^&*()_+`\-\=\[\]{};:;'",./<>?|\\]/) !== null; // match() returns null if no match is found
+  return string.match(/[A-Zg-z~!@#$%^&*()_+`\-=[\]{};:;'",./<>?|\\]/) !== null; // match() returns null if no match is found
 }
 
 function isObjectIdValid(param) {
@@ -77,11 +77,13 @@ function isTimestampValid(param) {
   return createTimestamp(param);
 }
 
+// eslint-disable-next-line no-unused-vars
 const Mongo = {
   isValid: (s) => isObjectIdValid(s),
   getTimestamp: (s) => isTimestampValid(s),
 };
 
+// eslint-disable-next-line no-unused-vars
 const exampleValidObjectId = '507f1f77bcf86cd799439011';
 
 /**
