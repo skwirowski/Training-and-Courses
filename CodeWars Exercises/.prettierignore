@@ -2,5 +2,5 @@
 **/html
 # ignore node_modules directory
 **/node_modules
-# ignore test directory
+# ignore dist directory
 **/dist
