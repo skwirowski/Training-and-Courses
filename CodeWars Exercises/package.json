@@ -33,7 +33,7 @@
     "karma-jasmine": "^4.0.1",
     "karma-mocha-reporter": "^2.2.5",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^4.0.2",
+    "karma-webpack": "^5.0.0",
     "prettier": "^2.0.5",
     "webpack": "^5.0.0-rc.6",
     "webpack-cli": "^4.4.0"
