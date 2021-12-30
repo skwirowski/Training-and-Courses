@@ -1,5 +1,8 @@
 .idea
 .DS_Store
+.vscode
+bin
+obj
 node_modules
 Avid-testy
 PQ Studio
