@@ -1,7 +1,0 @@
-.idea
-.DS_Store
-.eslintrc.js
-.vscode
-yarn-error.log
-node_modules
-dist
